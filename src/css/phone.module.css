@@ -1,0 +1,14 @@
+.phone {
+    display: inline-block;
+    margin-top: 30px;
+
+}
+
+.logo {
+    width: 'auto';
+    height: 'auto';
+}
+
+.submit {
+    margin-top: 30px;
+}
