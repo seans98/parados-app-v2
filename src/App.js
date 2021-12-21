@@ -35,6 +35,23 @@ function App() {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(userInfo));
   }, [userInfo]);
+  //
+  useEffect(() => {
+    const vid2 = localStorage.getItem("video2");
+    setvideo2Watched(JSON.parse(vid2));
+    const vid1 = localStorage.getItem("video1");
+    setvideo1Watched(JSON.parse(vid1));
+
+    const vid3 = localStorage.getItem("video3");
+    setvideo2Watched(JSON.parse(vid3));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("video2", JSON.stringify(video2Watched));
+
+    localStorage.setItem("video1", JSON.stringify(video1Watched));
+    localStorage.setItem("video3", JSON.stringify(video3Watched));
+  }, [video1Watched, video2Watched, video3Watched]);
 
   //
   useEffect(() => {
