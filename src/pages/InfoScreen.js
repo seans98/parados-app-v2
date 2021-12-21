@@ -134,8 +134,8 @@ const InfoScreen = (props) => {
               experience and curated exercises.
             </ListItem>
             <ListItem>
-              A stable internet connection and a quiet space are essential for
-              ensuring a smooth experience
+              Please refrain from hard refreshing the page as this causes issues
+              with the survey submission.
             </ListItem>
           </List>
         </Paper>

@@ -68,53 +68,73 @@ function App() {
           <PhoneNumber setUserInfo={setUserInfo} />
         </Route>
         <Route path="/infoscreen">
-          <InfoScreen userInfo={userInfo} setTimeStarted={setTimeStarted} />
+          {userInfo.firstName === "Test" ? (
+            <h1>You have not been properly authenticated</h1>
+          ) : (
+            <InfoScreen userInfo={userInfo} setTimeStarted={setTimeStarted} />
+          )}
         </Route>
         <Route path="/video1" exact>
-          <Video
-            number={1}
-            backButton="Info Page"
-            backButtonContent="/infoscreen"
-            nextButtonContent="/video2"
-            nextButton="Next Video"
-            endText="to the next exercise."
-            videoURL={userInfo.group[0]}
-            videoWatched={video1Watched}
-            setvideoWatched={setvideo1Watched}
-          />
+          {userInfo.firstName === "Test" ? (
+            <h1>You have not been properly authenticated</h1>
+          ) : (
+            <Video
+              number={1}
+              backButton="Info Page"
+              backButtonContent="/infoscreen"
+              nextButtonContent="/video2"
+              nextButton="Next Video"
+              endText="to the next exercise."
+              videoURL={userInfo.group[0]}
+              videoWatched={video1Watched}
+              setvideoWatched={setvideo1Watched}
+            />
+          )}
         </Route>
         <Route path="/video2" exact>
-          <Video
-            number={2}
-            backButton="Prev Video"
-            backButtonContent="/video1"
-            nextButtonContent="/video3"
-            nextButton="Next Video"
-            endText="to the next exercise."
-            videoURL={userInfo.group[1]}
-            videoWatched={video2Watched}
-            setvideoWatched={setvideo2Watched}
-          />
+          {userInfo.firstName === "Test" ? (
+            <h1>You have not been properly authenticated</h1>
+          ) : (
+            <Video
+              number={2}
+              backButton="Prev Video"
+              backButtonContent="/video1"
+              nextButtonContent="/video3"
+              nextButton="Next Video"
+              endText="to the next exercise."
+              videoURL={userInfo.group[1]}
+              videoWatched={video2Watched}
+              setvideoWatched={setvideo2Watched}
+            />
+          )}
         </Route>
         <Route path="/video3" exact>
-          <Video
-            number={3}
-            backButton="Prev Video"
-            backButtonContent="/video2"
-            nextButtonContent="/survey"
-            nextButton="Survey"
-            endText="to the survey."
-            videoURL={userInfo.group[2]}
-            videoWatched={video3Watched}
-            setvideoWatched={setvideo3Watched}
-          />
+          {userInfo.firstName === "Test" ? (
+            <h1>You have not been properly authenticated</h1>
+          ) : (
+            <Video
+              number={3}
+              backButton="Prev Video"
+              backButtonContent="/video2"
+              nextButtonContent="/survey"
+              nextButton="Survey"
+              endText="to the survey."
+              videoURL={userInfo.group[2]}
+              videoWatched={video3Watched}
+              setvideoWatched={setvideo3Watched}
+            />
+          )}
         </Route>
         <Route path="/survey">
-          <Survey
-            timestarted={timestarted}
-            submitSurvey={submitSurvey}
-            setSubmitSurvey={setSubmitSurvey}
-          />
+          {userInfo.firstName === "Test" ? (
+            <h1>You have not been properly authenticated</h1>
+          ) : (
+            <Survey
+              timestarted={timestarted}
+              submitSurvey={submitSurvey}
+              setSubmitSurvey={setSubmitSurvey}
+            />
+          )}
         </Route>
       </Switch>
     </div>
