@@ -12,6 +12,9 @@ import {
   TextField,
 } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
+import { db } from "../firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+
 const Survey = (props) => {
   let now = new Date();
   let timeStarted = props.timestarted;
@@ -21,8 +24,10 @@ const Survey = (props) => {
       timeCompleted: now,
     },
   });
+  const userCollectionRef = collection(db, "feedback-2");
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    await addDoc(userCollectionRef, data);
     props.setSubmitSurvey(true);
     console.log(data);
   };
