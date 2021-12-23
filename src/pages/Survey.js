@@ -42,7 +42,10 @@ const Survey = (props) => {
         <Paper sx={{ width: 0.75 }}>
           <FormControl fullWidth>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <h1>Post Exercise Survery</h1>
+              <h3>
+                To enter yourself into the draw for the prize complete the
+                survey below.
+              </h3>
               <p>*any questions with a scale (1 - lowest, 5 - highest)</p>
               <Box sx={{ minWidth: 120 }}>
                 <Controller
@@ -52,9 +55,9 @@ const Survey = (props) => {
                   render={({ field: { onChange, value } }) => (
                     <>
                       <h3>
-                        How did you feel about the lengths of today's exercises?
+                        How did you feel about the lengths of the exercises?
                       </h3>
-                      <FormControl variant="outlined">
+                      <FormControl variant="outlined" sx={{ minWidth: 1 / 2 }}>
                         <InputLabel id="exercise_label">
                           Exercise Lengths
                         </InputLabel>
@@ -78,36 +81,17 @@ const Survey = (props) => {
                       </FormControl>
                     </>
                   )}
-                  defaultValue="tooLong" // make sure to set up defaultValue
+                  defaultValue="" // make sure to set up defaultValue
                 />
               </Box>
               <FormControl>
                 <Controller
                   control={control}
-                  name="expVideo"
+                  name="exp"
                   defaultValue={3}
                   render={({ field: { onChange } }) => (
                     <>
-                      <h3>Rate your experience with the videos</h3>
-                      <Slider
-                        max={5}
-                        min={1}
-                        defaultValue={3}
-                        marks={true}
-                        step={1}
-                        valueLabelDisplay="auto"
-                        onChange={(value) => onChange(value)}
-                      />
-                    </>
-                  )}
-                />
-                <Controller
-                  control={control}
-                  name="expAudio"
-                  defaultValue={3}
-                  render={({ field: { onChange } }) => (
-                    <>
-                      <h3>Rate your experience with the audio</h3>
+                      <h3>Rate your experience</h3>
                       <Slider
                         max={5}
                         min={1}
@@ -128,8 +112,7 @@ const Survey = (props) => {
                     <>
                       <h3>
                         How likely are you to incorporate using this app into
-                        your daily routine? (If the exercises are curated
-                        specifically for your biometrics)
+                        your daily routine?
                       </h3>
                       <Slider
                         max={5}
@@ -164,42 +147,11 @@ const Survey = (props) => {
               </FormControl>
               <Box>
                 <Controller
-                  name="$/month"
-                  control={control}
-                  rules={{ required: "Budget Required" }}
-                  render={({ field: { onChange, value } }) => (
-                    <>
-                      <h3>
-                        How much $/month do you think this service is worth for
-                        an individual user?
-                      </h3>
-                      <FormControl variant="outlined">
-                        <InputLabel id="price_label">$/Month</InputLabel>
-
-                        <Select
-                          value={value}
-                          onChange={onChange}
-                          label="$/Month"
-                          labelId="price_label"
-                        >
-                          <MenuItem value="free">
-                            This service should be free.
-                          </MenuItem>
-                          <MenuItem value="$5/month">$5/month</MenuItem>
-                          <MenuItem value="$10/month">$10/month</MenuItem>
-                          <MenuItem value="$15/month">$15/month</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </>
-                  )}
-                  defaultValue="$5/month" // make sure to set up defaultValue
-                />
-                <Controller
                   control={control}
                   name="otherFeedback"
                   defaultValue=""
                   render={({ field: { onChange } }) => (
-                    <FormControl fullWidth>
+                    <FormControl sx={{ width: 3 / 4 }}>
                       <h3>Any other feedback? Please let us know below.</h3>
                       <TextField
                         id="standard-multiline-flexible"
@@ -226,6 +178,13 @@ const Survey = (props) => {
             Your Survey has been submitted. Once again, thank you for your
             participation.
           </h1>
+          <p>
+            If you would like to know more about concussion prevention please
+            visit the link below:
+          </p>
+          <a href="https://www.parados.ca/research.html">
+            Research and Articles
+          </a>
         </Paper>
       )}
     </Grid>

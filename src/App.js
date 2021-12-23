@@ -84,7 +84,6 @@ function App() {
               backButtonContent="/infoscreen"
               nextButtonContent="/video2"
               nextButton="Next Video"
-              endText="to the next exercise."
               videoURL={userInfo.group[0]}
               videoWatched={video1Watched}
               setvideoWatched={setvideo1Watched}
@@ -101,7 +100,6 @@ function App() {
               backButtonContent="/video1"
               nextButtonContent="/video3"
               nextButton="Next Video"
-              endText="to the next exercise."
               videoURL={userInfo.group[1]}
               videoWatched={video2Watched}
               setvideoWatched={setvideo2Watched}
@@ -118,7 +116,6 @@ function App() {
               backButtonContent="/video2"
               nextButtonContent="/survey"
               nextButton="Survey"
-              endText="to the survey."
               videoURL={userInfo.group[2]}
               videoWatched={video3Watched}
               setvideoWatched={setvideo3Watched}

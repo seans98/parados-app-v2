@@ -6,6 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { List, ListItem } from "@mui/material";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -13,18 +14,8 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const InfoScreen = (props) => {
   const history = useHistory();
-  const [checkbox1, setCheckbox1] = useState(false);
-  const [checkbox2, setCheckbox2] = useState(false);
   const [checkbox3, setCheckbox3] = useState(false);
   const [open, setOpen] = useState(false);
-
-  const handleChange1 = (event) => {
-    setCheckbox1(event.target.checked);
-  };
-
-  const handleChange2 = (event) => {
-    setCheckbox2(event.target.checked);
-  };
 
   const handleChange3 = (event) => {
     setCheckbox3(event.target.checked);
@@ -43,7 +34,7 @@ const InfoScreen = (props) => {
   };
 
   const handleClick = () => {
-    if (checkbox1 && checkbox2 && checkbox3) {
+    if (checkbox3) {
       let start = new Date();
       props.setTimeStarted(start);
       history.push("/video1");
@@ -66,8 +57,8 @@ const InfoScreen = (props) => {
       >
         <Paper sx={{ width: 3 / 4, mb: 3, mt: 3 }}>
           <h1>
-            Hello {props.userInfo.firstName} thank you so much for being an
-            early adopter of the Parados Web Application
+            Hello {props.userInfo.firstName} thanks for being an early adopter
+            of the Parados Web Application
           </h1>
         </Paper>
         <Paper sx={{ width: 3 / 4, mb: 3 }}>
@@ -75,37 +66,26 @@ const InfoScreen = (props) => {
         </Paper>
 
         <Paper sx={{ width: 3 / 4, mb: 3 }}>
-          <h2>By now the following should've happened...</h2>
+          <h2>By now you should have...</h2>
+          <List>
+            <ListItem>
+              {" "}
+              <AssignmentTurnedInIcon sx={{ mr: 2, color: "#3f515b" }} />{" "}
+              Submitted the initial User Information Survey
+            </ListItem>
+
+            <ListItem>
+              {" "}
+              <AssignmentTurnedInIcon sx={{ mr: 2, color: "#3f515b" }} />{" "}
+              Submitted videos of the diagnostic exercises
+            </ListItem>
+          </List>
+        </Paper>
+        <Paper sx={{ width: 3 / 4, mb: 3 }}>
           <List>
             <ListItem>
               <FormControlLabel
-                label="You submitted the initial User Information Survey"
-                control={
-                  <Checkbox
-                    checked={checkbox1}
-                    onChange={handleChange1}
-                    inputProps={{ "aria-label": "controlled" }}
-                  />
-                }
-              />
-            </ListItem>
-
-            <ListItem>
-              <FormControlLabel
-                label="You submitted videos of the diagnostic exercises"
-                control={
-                  <Checkbox
-                    checked={checkbox2}
-                    onChange={handleChange2}
-                    inputProps={{ "aria-label": "controlled" }}
-                  />
-                }
-              />
-            </ListItem>
-
-            <ListItem>
-              <FormControlLabel
-                label="You received a text or email from Parados indicating that your exercises are ready"
+                label="I have done all of the above and ready to proceed"
                 control={
                   <Checkbox
                     checked={checkbox3}
@@ -114,28 +94,6 @@ const InfoScreen = (props) => {
                   />
                 }
               />
-            </ListItem>
-          </List>
-        </Paper>
-        <Paper sx={{ width: 3 / 4, mb: 3 }}>
-          <h4>
-            The following pages will contain video/audio files with exercises
-            that are beneficial to your physical and mental well being so the
-            team asks that you do the following{" "}
-          </h4>
-          <List>
-            <ListItem>
-              Watch the video/listen to the audio in its entireity and do the
-              exercises as instructed.
-            </ListItem>
-            <ListItem>
-              At the end of the exercises there will be a survey. Please fill
-              that out and submit it as it helps us at Parados improve the
-              experience and curated exercises.
-            </ListItem>
-            <ListItem>
-              Please refrain from hard refreshing the page as this causes issues
-              with the survey submission.
             </ListItem>
           </List>
         </Paper>
@@ -163,8 +121,7 @@ const InfoScreen = (props) => {
       </Grid>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
-          Please ensure all of the prior tasks have been checked off and
-          completed.
+          Please ensure you have done all of the prior tasks.
         </Alert>
       </Snackbar>
     </div>

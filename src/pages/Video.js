@@ -36,7 +36,6 @@ const Video = (props) => {
         Please watch the video/listen to the audio and complete the exercise as
         instructed
       </h2>
-      <p>Once the video/audio is complete you may proceed {props.endText}</p>
       <Grid
         container
         direction="row"
